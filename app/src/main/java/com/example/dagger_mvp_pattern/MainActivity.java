@@ -1,26 +1,25 @@
 package com.example.dagger_mvp_pattern;
 
 import android.os.Bundle;
-
-import com.example.dagger_mvp_pattern.mvp.BaseContract;
-import com.google.android.material.snackbar.Snackbar;
-
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import com.example.dagger_mvp_pattern.databinding.ActivityMainBinding;
+import com.example.dagger_mvp_pattern.di.Application;
+import com.google.android.material.snackbar.Snackbar;
 
-import android.view.Menu;
-import android.view.MenuItem;
+import javax.inject.Inject;
 
 public class MainActivity extends AppCompatActivity implements MainContract.View {
 
+    @Inject
     protected MainPresenter presenter;
 
     private AppBarConfiguration appBarConfiguration;
@@ -33,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        ((Application) getApplicationContext()).appComponent.inject(this);
         super.onCreate(savedInstanceState);
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
