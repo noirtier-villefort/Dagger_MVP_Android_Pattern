@@ -2,6 +2,7 @@ package com.example.dagger_mvp_pattern;
 
 import android.os.Bundle;
 
+import com.example.dagger_mvp_pattern.mvp.BaseContract;
 import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,10 +19,17 @@ import com.example.dagger_mvp_pattern.databinding.ActivityMainBinding;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MainContract.View {
+
+    protected MainPresenter presenter;
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
+
+    @Override
+    public void baseViewTestMethod() {
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,4 +81,5 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, appBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
 }

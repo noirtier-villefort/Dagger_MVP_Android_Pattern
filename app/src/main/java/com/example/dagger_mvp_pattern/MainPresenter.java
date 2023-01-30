@@ -4,7 +4,7 @@ import com.example.dagger_mvp_pattern.mvp.BaseContract;
 import com.example.dagger_mvp_pattern.mvp.BasePresenter;
 
 public class MainPresenter extends BasePresenter<MainContract.View>
-implements BaseContract.Presenter{
+implements MainContract.Presenter{
     protected MainPresenter(MainContract.View view) {
         super(view);
     }
@@ -17,5 +17,10 @@ implements BaseContract.Presenter{
     @Override
     public void destroy() {
         super.destroy();
+    }
+
+    @Override
+    public void basePresenterTestMethod() {
+
     }
 }
